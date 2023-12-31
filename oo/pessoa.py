@@ -9,6 +9,14 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá {id(self)}'
 
+    @staticmethod
+    def metodo_estatico():
+        return 42
+
+    @classmethod
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
+
 
 if __name__ == '__main__':
     gustavo = Pessoa(nome='Gustavo')
@@ -31,3 +39,6 @@ if __name__ == '__main__':
     print(greyce.olhos)
     print(gustavo.olhos)
     print(id(Pessoa.olhos), id(greyce.olhos), id(gustavo.olhos))
+    print(Pessoa.metodo_estatico(), greyce.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), greyce.nome_e_atributos_de_classe())
+
