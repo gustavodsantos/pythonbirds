@@ -18,4 +18,8 @@ if __name__ == '__main__':
     print(greyce.idade)
     for filho in greyce.filhos:
         print(filho.nome)
+    greyce.sobrenome = 'Santos'
+    del greyce.filhos
+    print(greyce.__dict__)
+    print(gustavo.__dict__)
 
