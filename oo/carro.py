@@ -19,7 +19,7 @@ O   L
   S
 
 Exemplo:
-# Testando motor
+>>> # Testando motor
 >>> motor = Motor()
 >>> motor.velocidade
 0
@@ -38,7 +38,7 @@ Exemplo:
 >>> motor.frear()
 >>> motor.velocidade
 0
-# Testando Direção
+>>> # Testando direção
 >>> direção = Direção()
 >>> direção.valor
 'Norte'
@@ -66,17 +66,17 @@ Exemplo:
 >>> direção.girar_a_esquerda()
 >>> direção.valor
 'Norte'
->>> carro = Carro(direção, motor)
+>>> carro = Carro(motor, direção)
 >>> carro.calcular_velocidade()
 0
 >>> carro.acelerar()
->>> >>> carro.calcular_velocidade()
+>>> carro.calcular_velocidade()
 1
 >>> carro.acelerar()
->>> >>> carro.calcular_velocidade()
+>>> carro.calcular_velocidade()
 2
 >>> carro.frear()
->>> >>> carro.calcular_velocidade()
+>>> carro.calcular_velocidade()
 0
 >>> carro.calcular_direção()
 'Norte'
@@ -98,13 +98,9 @@ class Carro:
     def __init__(self, motor=Motor(), direção=Direção()):
         self.motor = motor
         self.direção = direção
-        self.sentido = 'Norte'
 
-    def girar_a_esquerda(self):
-        self.sentido = self.direção.direcao_esquerda()
-
-    def girar_a_direita(self):
-        self.sentido = self.direção.girar_a_direita()
+    def calcular_velocidade(self):
+        return self.motor.velocidade
 
     def acelerar(self):
         self.motor.acelerar()
@@ -112,5 +108,13 @@ class Carro:
     def frear(self):
         self.motor.frear()
 
-    def velocidade(self):
-        print(self.motor.velocidade)
+    def calcular_direção(self):
+        return self.direção.valor
+
+    def girar_a_esquerda(self):
+        self.direção.girar_a_esquerda()
+
+    def girar_a_direita(self):
+        self.direção.girar_a_direita()
+
+
