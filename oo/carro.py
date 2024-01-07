@@ -66,7 +66,7 @@ Exemplo:
 >>> direção.girar_a_esquerda()
 >>> direção.valor
 'Norte'
->>> carro = Carro(dirção, motor)
+>>> carro = Carro(direção, motor)
 >>> carro.calcular_velocidade()
 0
 >>> carro.acelerar()
@@ -90,3 +90,27 @@ Exemplo:
 >>> carro.calcular_direção()
 'Oeste'
 """
+from motor import Motor
+from direção import Direção
+
+
+class Carro:
+    def __init__(self, motor=Motor(), direção=Direção()):
+        self.motor = motor
+        self.direção = direção
+        self.sentido = 'Norte'
+
+    def girar_a_esquerda(self):
+        self.sentido = self.direção.direcao_esquerda()
+
+    def girar_a_direita(self):
+        self.sentido = self.direção.girar_a_direita()
+
+    def acelerar(self):
+        self.motor.acelerar()
+
+    def frear(self):
+        self.motor.frear()
+
+    def velocidade(self):
+        print(self.motor.velocidade)
